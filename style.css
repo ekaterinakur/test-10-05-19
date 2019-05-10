@@ -4,30 +4,33 @@ body {
   font-family: Arial;
   text-align: center;
 }
-body main {
+body .people {
   padding: 30px 0;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(4, auto);
-}
-body main .person {
-  width: 220px;
-  height: 287px;
+  grid-template: repeat(3, 231px)/repeat(4, 200px);
+  grid-gap: 40px 30px;
   position: relative;
-  font-size: 18px;
-  padding: 10px;
-  box-sizing: border-box;
 }
-body main .person .photo {
+body .people .person {
+  width: 200px;
+  font-size: 18px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+body .people .person .photo {
   width: 200px;
   height: 200px;
-  margin-bottom: 8px;
+  transition: width 1s, height 1s linear;
 }
-body main .person .photo img {
+body .people .person .photo img {
   width: 100%;
   border-radius: 50%;
+  transition: width 1s, height 1s, border-radius 1s linear;
 }
-body main .person .photo .rank {
+body .people .person .photo .rank {
   position: absolute;
   right: 20px;
   top: 94px;
@@ -40,48 +43,79 @@ body main .person .photo .rank {
   line-height: 32px;
   font-weight: bold;
 }
-body main .person .details a {
+body .people .person .details {
+  margin-top: 8px;
+}
+body .people .person .details a {
   text-decoration: none;
   color: #2f4f4f;
   font-weight: bold;
   font-size: 20px;
+  transition: font-size 1s linear;
 }
-body main .person .details .extra {
+body .people .person .details .extra {
   display: none;
+  margin-top: 9px;
+  transition: font-size 1s linear;
+  transition-delay: 0.5s;
 }
-body main .person .details .extra .sport::after {
+body .people .person .details .extra .sport::after {
   content: ",";
 }
-body main .person .details .extra .pay::before {
+body .people .person .details .extra .pay::before {
   content: "$";
 }
-body main .person .details .extra .pay::after {
+body .people .person .details .extra .pay::after {
   content: "M";
 }
-body main .person:hover {
-  animation: hover 1s;
+body .people .person:hover {
   cursor: pointer;
+  width: 220px;
+  padding: 10px;
+  background: #eee;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  animation: hover-card 1s linear forwards;
 }
-body main .person:hover .extra {
+body .people .person:hover .photo {
+  width: 240px;
+  height: 240px;
+}
+body .people .person:hover .photo img {
+  width: 240px;
+  height: 240px;
+  border-radius: 60px;
+}
+body .people .person:hover .photo .rank {
+  top: 113px;
+  right: 25px;
+}
+body .people .person:hover a {
+  font-size: 24px;
+}
+body .people .person:hover .extra {
   display: block;
+  font-size: 21.5px;
 }
 @media (max-width: 750px) {
-  body main {
-    grid-template-columns: repeat(2, auto);
+  body .people {
+    grid-template: repeat(5, 231px)/repeat(2, 200px);
   }
 }
 
-@keyframes hover {
+@keyframes hover-card {
   from {
-    background: #eee;
     border-radius: 10px;
-    transform: skale(0.1);
+    height: 287px;
   }
   to {
-    background: #eee;
+    width: 264px;
+    height: 344.4px;
     border-radius: 12px;
-    transform: skale(0.2);
-    font-size: 21.6px;
+    padding: 12px;
+    margin-top: -20px;
+    margin-left: -32px;
   }
 }
 
