@@ -1,0 +1,88 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Arial;
+  text-align: center;
+}
+body main {
+  padding: 30px 0;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, auto);
+}
+body main .person {
+  width: 220px;
+  height: 287px;
+  position: relative;
+  font-size: 18px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+body main .person .photo {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 8px;
+}
+body main .person .photo img {
+  width: 100%;
+  border-radius: 50%;
+}
+body main .person .photo .rank {
+  position: absolute;
+  right: 20px;
+  top: 94px;
+  background: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #8B0000;
+  line-height: 32px;
+  font-weight: bold;
+}
+body main .person .details a {
+  text-decoration: none;
+  color: #2f4f4f;
+  font-weight: bold;
+  font-size: 20px;
+}
+body main .person .details .extra {
+  display: none;
+}
+body main .person .details .extra .sport::after {
+  content: ",";
+}
+body main .person .details .extra .pay::before {
+  content: "$";
+}
+body main .person .details .extra .pay::after {
+  content: "M";
+}
+body main .person:hover {
+  animation: hover 1s;
+  cursor: pointer;
+}
+body main .person:hover .extra {
+  display: block;
+}
+@media (max-width: 750px) {
+  body main {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+@keyframes hover {
+  from {
+    background: #eee;
+    border-radius: 10px;
+    transform: skale(0.1);
+  }
+  to {
+    background: #eee;
+    border-radius: 12px;
+    transform: skale(0.2);
+    font-size: 21.6px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
